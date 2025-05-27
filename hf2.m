@@ -171,7 +171,7 @@ fi_t_vec = subs(fi_t,A_,1);
 fi_t_plot = double(subs(fi_t_vec,t_,T));
 
 % Range of initial angles (in radians)
-phi0_vals = linspace(0.001, pi()/2 - 0.001, 50);  % avoid exactly 0 and pi to prevent singularities
+phi0_vals = linspace(0.001, pi()/2 - 0.001, 50);
 periods = zeros(size(phi0_vals));
 
 % Time span for each simulation
@@ -210,6 +210,7 @@ plot(fi_taylor,f_plot,"k")
 hold off
 xlabel('$\varphi [rad]$','interpreter','latex');
 ylabel('$f(\varphi) [1/s^2]$','interpreter','latex');
+legend({'Approximation','Original function','f_0 = 1'},'Location','northwest','FontSize',10)
 ylim([-1000,1000])
 grid on;
 grid minor
@@ -224,6 +225,7 @@ plot(phi0_vals, periods, 'b-');
 hold off
 xlabel('$A [rad]$','interpreter','latex');
 ylabel('$T [s]$','interpreter','latex');
+legend({'Approximation','ode45','f_0 = 1'},'Location','northeast','FontSize',10)
 xlim([0,pi()/10])
 grid on;
 grid minor
@@ -236,6 +238,7 @@ plot(phi0_vals, periods, 'b-');
 hold off
 xlabel('$A [rad]$','interpreter','latex');
 ylabel('$T [s]$','interpreter','latex');
+legend({'Approximation','ode45','f_0 = 1'},'Location','northeast','FontSize',10)
 grid on;
 grid minor
 
